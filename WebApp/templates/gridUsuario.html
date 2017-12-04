@@ -1,0 +1,70 @@
+﻿<div class="row">
+    <div class="col-lg-8 col-lg-offset-2" style="margin-top:20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h2><span class="glyphicon glyphicon-home"></span> Grid de usuários</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Pesquisar usuário <small> buscar algum usuário pelo login</small></h3>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-6">
+                <input class="form-control" type="text" ng-model="filtro" placeholder="Digite pelo login" />
+            </div>
+            <div class="col-lg-2" style="margin-left:-20px">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <button class="btn" ng-click="pesquisar()"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <table class="table table-hover" style="margin-top:20px;">
+                        <thead class="cor">
+                            <tr>
+                                <td>Login</td>
+                                <td>Nome</td>
+                                <td>Data da inclusão</td>
+                                <td>Função</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="table in tables | itemsPerPage: 10" current-page="pagination.current">
+                                <td>{{table.Login}}</td>
+                                <td>{{table.Nome}}</td>
+                                <td>{{table.DataSave | date:'dd/MM/yyyy'}}</td>
+                                <td>{{table.Funcao}}</td>
+                                <td>
+                                    <span ng-click="delete(table.Id)" class="glyphicon glyp-margin glyphicon-remove"></span>
+                                    <span ng-click="desativar(table.Id)" class="fa fa-toggle-on" ng-show="!table.DataDelete"></span>
+                                    <span ng-click="ativar(table.Id)" class="fa fa-toggle-off" ng-show="table.DataDelete"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <span class="bg-danger"><br />{{error}}</span>
+
+                    <div class="pull-right" style="margin-top:-30px;">
+                        <dir-pagination-controls max-size="10" boundary-links="true">
+
+                        </dir-pagination-controls>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

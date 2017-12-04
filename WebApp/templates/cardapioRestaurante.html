@@ -1,0 +1,374 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="text-center">
+            <h1> Cardápio </h1>
+        </div>
+    </div>
+</div>
+<p></p>
+<form name="form" novalidate>
+    <div ng-repeat="bebida in bebidas">
+        <h2 ng-if="$index == 0" style="margin-left: 100px;"> Bebidas</h2>
+        <div class="row">
+            <div class="col-lg-12">
+                <img ng-if="$index == 0" style="margin-left:180px;" width="1000" height="250" src="{{bebida.Imagem}}">
+            </div>
+        </div>
+    </div>
+
+    <div ng-repeat="r in refrigerantes">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left: 200px;">
+                <div class="row">
+                    <h2 ng-if="$index == 0"> {{r.DescricaoSubCategoria}}</h2>
+                    <div class="col-lg-2">
+                        <input type="checkbox" ng-model="r.Pedido" ng-click="setPristine(r)"> {{r.Titulo}}<br>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{r.Preco}}</h7>
+                    </div>
+                    <div class="col-lg-2" ng-if="r.Pedido">
+                        <div ng-class="{'has-error': form.quantidade.$invalid && form.quantidade.$touched}">
+                            <label>Quantidade</label>
+                            <input type="number" name="quantidade" required ng-model="r.Quantidade" />
+                            <p ng-show="form.quantidade.$invalid && form.quantidade.$touched" class="text-danger">Campo obrigatório</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-repeat="h in h2o">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left: 200px;">
+                <div class="row">
+                    <h2 ng-if="$index == 0"> {{h.DescricaoSubCategoria}}</h2>
+                    <div class="col-lg-2">
+                        <input type="checkbox" ng-model="h.Pedido" ng-click="setPristine(h)"> {{h.Titulo}}<br>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{h.Preco}}</h7>
+                    </div>
+                    <div class="col-lg-2" ng-if="h.Pedido">
+                        <div ng-class="{'has-error': form.quantidade2.$invalid && form.quantidade2.$touched}">
+                            <label>Quantidade</label>
+                            <input type="number" name="quantidade2" required ng-model="h.Quantidade" />
+                            <p ng-show="form.quantidade2.$invalid && form.quantidade2.$touched" class="text-danger">Campo obrigatório</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-repeat="n in sucoNatural">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left:200px;">
+                <div class="row">
+                    <h2 ng-if="$index == 0"> {{n.DescricaoSubCategoria}}</h2>
+                    <div class="col-lg-2">
+                        <input type="checkbox" ng-model="n.Pedido" ng-click="setPristine(n)"> {{n.Titulo}}<br>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{n.Preco}}</h7>
+                    </div>
+                    <div class="col-lg-2" ng-if="n.Pedido">
+                        <div ng-class="{'has-error': form.quantidade3.$invalid && form.quantidade3.$touched}">
+                            <label>Quantidade</label>
+                            <input type="number" name="quantidade3" required ng-model="n.Quantidade" />
+                            <p ng-show="form.quantidade3.$invalid && form.quantidade3.$touched" class="text-danger">Campo obrigatório</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-repeat="p in sucoPolpa">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left:200px;">
+                <div class="row">
+                    <h2 ng-if="$index == 0"> {{p.DescricaoSubCategoria}}</h2>
+                    <div class="col-lg-2">
+                        <input type="checkbox" ng-model="p.Pedido" ng-click="setPristine(p)"> {{p.Titulo}}<br>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{p.Preco}}</h7>
+                    </div>
+                    <div class="col-lg-2" ng-if="p.Pedido">
+                        <div ng-class="{'has-error': form.quantidade4.$invalid && form.quantidade4.$touched}">
+                            <label>Quantidade</label>
+                            <input type="number" name="quantidade4" required ng-model="p.Quantidade" />
+                            <p ng-show="form.quantidade4.$invalid && form.quantidade4.$touched" class="text-danger">Campo obrigatório</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-repeat="d in drinks">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left:200px;">
+                <div class="row">
+                    <h2 ng-if="$index == 0"> {{d.DescricaoSubCategoria}}</h2>
+                    <div class="col-lg-2">
+                        <input type="checkbox" ng-model="d.Pedido" ng-click="setPristine(d)"> {{d.Titulo}}<br>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{d.Preco}}</h7>
+                    </div>
+                    <div class="col-lg-2" ng-if="d.Pedido">
+                        <div ng-class="{'has-error': form.quantidade5.$invalid && form.quantidade5.$touched}">
+                            <label>Quantidade</label>
+                            <input type="number" name="quantidade5" required ng-model="d.Quantidade" />
+                            <p ng-show="form.quantidade5.$invalid && form.quantidade5.$touched" class="text-danger">Campo obrigatório</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-repeat="a in aguas">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left:200px;">
+                <div class="row">
+                    <h2 ng-if="$index == 0"> {{a.DescricaoSubCategoria}}</h2>
+                    <div class="col-lg-2">
+                        <input type="checkbox" ng-model="a.Pedido" ng-click="setPristine(a)"> {{a.Titulo}}<br>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{a.Preco}}</h7>
+                    </div>
+                    <div class="col-lg-2" ng-if="a.Pedido">
+                        <div ng-class="{'has-error': form.quantidade6.$invalid && form.quantidade6.$touched}">
+                            <label>Quantidade</label>
+                            <input type="number" name="quantidade6" required ng-model="a.Quantidade" />
+                            <p ng-show="form.quantidade6.$invalid && form.quantidade6.$touched" class="text-danger">Campo obrigatório</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-repeat="c in cervejas">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left:200px;">
+                <div class="row">
+                    <h2 ng-if="$index == 0"> {{c.DescricaoSubCategoria}}</h2>
+                    <div class="col-lg-2">
+                        <input type="checkbox" ng-model="c.Pedido" ng-click="setPristine(c)"> {{c.Titulo}}<br>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{c.Preco}}</h7>
+                    </div>
+                    <div class="col-lg-2" ng-if="c.Pedido">
+                        <div ng-class="{'has-error': form.quantidade7.$invalid && form.quantidade7.$touched}">
+                            <label>Quantidade</label>
+                            <input type="number" name="quantidade7" required ng-model="c.Quantidade" />
+                            <p ng-show="form.quantidade7.$invalid && form.quantidade7.$touched" class="text-danger">Campo obrigatório</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <div ng-repeat="pratoFrio in pratosFrios">
+        <h2 ng-if="$index == 0" style="margin-left: 100px;"> Pratos Frios</h2>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img style="margin-top:10px;" width="320" height="200" src="{{pratoFrio.Imagem}}">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>    <input type="checkbox" ng-model="pratoFrio.Pedido" ng-click="setPristine(pratoFrio)"> {{pratoFrio.Titulo}}<br> </h3>
+                        <p></p>
+                        <p></p>
+                        <b>Descrição: </b> {{pratoFrio.Descricao}}
+                        <p></p>
+                        <b>Tempo estimado para preparo: </b> {{pratoFrio.TempoPreparacao}}
+                        <p></p>
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{pratoFrio.Preco}}</h7>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-lg-2" ng-if="pratoFrio.Pedido">
+                                <div ng-class="{'has-error': form.quantidade8.$invalid && form.quantidade8.$touched}">
+                                    <label>Quantidade</label>
+                                    <input type="number" name="quantidade8" required ng-model="pratoFrio.Quantidade" />
+                                    <p ng-show="form.quantidade8.$invalid && form.quantidade8.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2" style="margin-left:120px;" ng-if="pratoFrio.Pedido">
+                                <label>Requisição: </label>
+                                <input type="text" name="requisicao8" ng-model="pratoFrio.Requisicao">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <div ng-repeat="pratoQuente in pratosQuentes">
+        <h2 ng-if="$index == 0" style="margin-left: 100px;"> Pratos Quentes</h2>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img style="margin-top:10px;" width="320" height="200" src="{{pratoQuente.Imagem}}">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>    <input type="checkbox" ng-model="pratoQuente.Pedido" ng-click="setPristine(pratoQuente)"> {{pratoQuente.Titulo}}<br> </h3>
+                        <p></p>
+                        <p></p>
+                        <b>Descrição: </b> {{pratoQuente.Descricao}}
+                        <p></p>
+                        <b>Tempo estimado para preparo: </b> {{pratoQuente.TempoPreparacao}}
+                        <p></p>
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{pratoQuente.Preco}}</h7>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-lg-2" ng-if="pratoQuente.Pedido">
+                                <div ng-class="{'has-error': form.quantidade9.$invalid && form.quantidade9.$touched}">
+                                    <label>Quantidade</label>
+                                    <input type="number" name="quantidade9" required ng-model="pratoQuente.Quantidade" />
+                                    <p ng-show="form.quantidade9.$invalid && form.quantidade9.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2" style="margin-left:120px;" ng-if="pratoQuente.Pedido">
+                                <label>Requisição: </label>
+                                <input type="text" name="requisicao9" ng-model="pratoQuente.Requisicao">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <div ng-repeat="entrada in entradas">
+        <h2 ng-if="$index == 0" style="margin-left: 100px;"> Entradas</h2>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img style="margin-top:10px;" width="320" height="200" src="{{entrada.Imagem}}">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>    <input type="checkbox" ng-model="entrada.Pedido" ng-click="setPristine(entrada)"> {{entrada.Titulo}}<br> </h3>
+                        <p></p>
+                        <p></p>
+                        <b>Descrição: </b> {{entrada.Descricao}}
+                        <p></p>
+                        <b>Tempo estimado para preparo: </b> {{entrada.TempoPreparacao}}
+                        <p></p>
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{entrada.Preco}}</h7>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-lg-2" ng-if="entrada.Pedido">
+                                <div ng-class="{'has-error': form.quantidade10.$invalid && form.quantidade10.$touched}">
+                                    <label>Quantidade</label>
+                                    <input type="number" name="quantidade10" required ng-model="entrada.Quantidade" />
+                                    <p ng-show="form.quantidade10.$invalid && form.quantidade10.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2" style="margin-left:120px;" ng-if="entrada.Pedido">
+                                <label>Requisição: </label>
+                                <input type="text" name="requisicao10" ng-model="entrada.Requisicao">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <div ng-repeat="especial in especiais">
+        <h2 ng-if="$index == 0" style="margin-left: 100px;"> Especiais</h2>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img style="margin-top:10px;" width="320" height="200" src="{{especial.Imagem}}">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>    <input type="checkbox" ng-model="especial.Pedido" ng-click="setPristine(especial)"> {{especial.Titulo}}<br> </h3>
+                        <p></p>
+                        <p></p>
+                        <b>Descrição: </b> {{especial.Descricao}}
+                        <p></p>
+                        <b>Tempo estimado para preparo: </b> {{especial.TempoPreparacao}}
+                        <p></p>
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{especial.Preco}}</h7>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-lg-2" ng-if="especial.Pedido">
+                                <div ng-class="{'has-error': form.quantidade11.$invalid && form.quantidade11.$touched}">
+                                    <label>Quantidade</label>
+                                    <input type="number" name="quantidade11" required ng-model="especial.Quantidade" />
+                                    <p ng-show="form.quantidade11.$invalid && form.quantidade11.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2" style="margin-left:120px;" ng-if="especial.Pedido">
+                                <label>Requisição: </label>
+                                <input type="text" name="requisicao11" ng-model="especial.Requisicao">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <p></p>
+
+    <div ng-repeat="sobremesa in sobremesas">
+        <h2 ng-if="$index == 0" style="margin-left: 100px;"> Sobremesas</h2>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img style="margin-top:10px;" width="320" height="200" src="{{sobremesa.Imagem}}">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>    <input type="checkbox" ng-model="sobremesa.Pedido" ng-click="setPristine(sobremesa)"> {{sobremesa.Titulo}}<br> </h3>
+                        <p></p>
+                        <p></p>
+                        <b>Descrição: </b> {{sobremesa.Descricao}}
+                        <p></p>
+                        <b>Tempo estimado para preparo: </b> {{sobremesa.TempoPreparacao}}
+                        <p></p>
+                        <b>Preço: </b> R$<h7 class="moneyPreco">{{sobremesa.Preco}}</h7>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-lg-2" ng-if="sobremesa.Pedido">
+                                <div ng-class="{'has-error': form.quantidade12.$invalid && form.quantidade12.$touched}">
+                                    <label>Quantidade</label>
+                                    <input type="number" name="quantidade12" required ng-model="sobremesa.Quantidade" />
+                                    <p ng-show="form.quantidade12.$invalid && form.quantidade12.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2" style="margin-left:120px;" ng-if="sobremesa.Pedido">
+                                <label>Requisição: </label>
+                                <input type="text" name="requisicao12" ng-model="sobremesa.Requisicao">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    
+<div class="row">
+    <div class="col-xs-12">
+        <div class="text-center">
+            <button type="button" class="btn btn-info btn-lg"   ng-disabled="!form.$valid || !showPedido" ng-click="save()" style="position: fixed; right: 0; top: 50%; width: 8em; margin-right:50px; margin-top: -2.5em;">Fazer pedido!</button>
+        </div>
+    </div>
+</div>
+</form>

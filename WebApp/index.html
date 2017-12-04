@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>ProjetoFATEC</title>
+    <meta charset="utf-8" />
+
+    <script type="text/javascript" src="libs/jquery/jquery-3.1.1.min.js"></script>
+
+    <!-- Includes Bootstrap -->
+    <!--<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>-->
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="libs/font-awesome-4.6.3/css/font-awesome.min.css">
+    <!--<script src="libs/bootstrap/js/npm.js"></script>-->
+    <!-- Includes AngularJS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-route.min.js"></script>
+    <script src="libs/angular/angular-locale_pt-br.js"></script>
+    <script src="js/directives/dirPagination.js"></script>
+    <script src="js/directives/uiCPF.js"></script>
+    <!-- Includes Configs -->
+    <script src="js/app.js"></script>
+    <script src="js/config/routeConfig.js"></script>
+    <script src="js/value/configValue.js"></script>
+
+    <!-- Includes API -->
+    <script src="js/services/usuarioService.js"></script>
+    <script src="js/services/produtoService.js"></script>
+    <script src="js/services/validacaoService.js"></script>
+    <!--<script src="libs/autoComplete/autoComplete.js"></script>-->
+    <!-- Includes Controllers -->
+    <script src="js/controller/painelCozinhaController.js"></script>
+    <script src="js/controller/cardapioRestauranteController.js"></script>
+    <script src="js/controller/editProdutoController.js"></script>
+    <script src="js/controller/configUsuarioController.js"></script>
+    <script src="js/controller/cadastroProdutoController.js"></script>
+    <script src="js/controller/gridProdutoController.js"></script>
+    <script src="js/controller/gridUsuarioController.js"></script>
+    <script src="js/controller/loginController.js"></script>
+    <script src="js/controller/cadastroUsuarioController.js"></script>
+    <script src="js/controller/esqueciSenhaController.js"></script>
+    <script src="js/controller/indexController.js"></script>
+    <script src="js/controller/telaPrincipalController.js"></script>
+
+
+</head>
+<body ng-controller="indexController">
+
+    <nav class="navbar navbar-default" ng-show="showNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ProjetoFATEC</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" ng-show="Permissao != 1" href="#/cardapio">Cardápio <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" ng-show="Permissao == 3" href="#/produto">Produto <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" ng-show="Permissao == 1 || Permissao == 3" href="#/painel">Painel <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" ng-show="Permissao ==3" href="#/usuario">Usuários <span class="sr-only"></span></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{NomeUsuario}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/usuario/config">Perfil</a></li>
+                        </ul>
+                    </li>
+                    <li><a ng-click="deslogar()">Logout</a></li>
+                    <li ng-show="!usuarioLogado"><a href="#/login">Login</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+
+    <div class="col-xs-12" ng-view>
+
+    </div>
+
+</body>
+</html>

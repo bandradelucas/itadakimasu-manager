@@ -1,0 +1,31 @@
+﻿<div class="row">
+    <h2 class="text-center">Painel</h2>
+    <div ng-repeat="pedido in pedidos">
+        <div class="col-xs-6 col-xs-offset-3" style="margin-top:10%;">
+            <h2> Pedido por {{pedido.UserId}}</h2>
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Título:</h4> {{pedido.Produto.Titulo}}</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="row"  ng-if="pedido.Produto.Descricao">
+                                    <div class="col-lg-12">
+                                        <h5><h4>Descrição:</h4> {{pedido.Produto.Descricao}}</h5>
+                                    </div>
+                                </div>  
+                                <div class="row" ng-if="pedido.Requisicao">
+                                    <div class="col-lg-12">
+                                        <h5><h4>Requisição:</h4> {{pedido.Requisicao}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn text-center" ng-click="finalizarPedido($index, pedido.Id)">Finalizar pedido</button>
+                    <button class="btn text-center" ng-click="cancelarPedido($index, pedido.Id)">Cancelar pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

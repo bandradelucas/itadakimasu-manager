@@ -1,0 +1,58 @@
+﻿<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <form name="form" novalidate>
+            <hr />
+            <div class="row" style="margin-top:100px;">
+                <div class="col-xs-12">
+                    <div class="text-center">
+                        <h2>Esqueci senha</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-4" style="margin-top:10px;">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div ng-class="{'has-error': form.login.$invalid && form.login.$touched}">
+                                <label>Login</label>
+                                <input class="form-control" type="text" ng-model="usuario.Login" name="login" placeholder="Login" required>
+                                <p ng-show="form.login.$invalid && form.login.$touched" class="text-danger">Campo obrigatório</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div ng-class="{'has-error': form.email.$invalid && form.email.$touched}">
+                                <label>E-mail</label>
+                                <input class="form-control" type="text" ng-model="usuario.Email" name="email" placeholder="Email" required>
+                                <p ng-show="form.email.$invalid && form.email.$touched" class="text-danger">Campo obrigatório</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div ng-class="{'has-error': form.confirmaEmail.$invalid && form.confirmaEmail.$touched || validacao}">
+                                <label>Confirmar e-mail</label>
+                                <input class="form-control" type="text" ng-model="confirmeEmail" name="confirmaEmail" placeholder="Confirme seu email" required>
+                                <p ng-show="form.confirmaEmail.$invalid && form.confirmaEmail.$touched" class="text-danger">Campo obrigatório</p>
+                                <p ng-show="validacao" class="text-danger">O email está diferente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row" style="margin-top:10px;">
+            <div class="col-xs-4 col-xs-offset-4">
+                <button class="btn btn-block corAzul" ng-disabled="!form.$valid" ng-click="enviaEmail(usuario)">Enviar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4" style="margin-top:10px;">
+                <a class="btn btn-default btn-block" href="#/login">Cancelar</a>
+            </div>
+        </div>
+        <hr />
+    </div>
+</div>

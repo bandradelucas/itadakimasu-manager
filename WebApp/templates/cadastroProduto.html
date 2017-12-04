@@ -1,0 +1,103 @@
+﻿<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="text-center">
+            <h2><span class="glyphicon glyphicon-ok"></span> Cadastro de produto</h2>
+        </div>
+        <hr />
+        <form name="form" novalidate>
+            <div class="row" style="margin-top:20px;">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div ng-class="{'has-error': form.descricao.$invalid && form.descricao.$touched}">
+                                    <label>Descrição</label>
+                                    <input class="form-control" placeholder="Descrição" ng-model="produto.Descricao" name="descricao" />
+                                    <p ng-show="form.descricao.$invalid && form.descricao.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div ng-class="{'has-error': form.titulo.$invalid && form.titulo.$touched}">
+                                    <label>Título</label>
+                                    <input class="form-control" placeholder="Título" ng-model="produto.Titulo" name="titulo" required />
+                                    <p ng-show="form.titulo.$invalid && form.titulo.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <div ng-class="{'has-error': form.custo.$invalid && form.custo.$touched}">
+                                    <label>Custo</label>
+                                    <input class="form-control" type="number" placeholder="Custo" ng-model="produto.Custo" name="custo" required />
+                                    <p ng-show="form.custo.$invalid && form.custo.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <div ng-class="{'has-error': form.preco.$invalid && form.preco.$touched}">
+                                    <label>Preço</label>
+                                    <input class="form-control" type="number" placeholder="Preço" ng-model="produto.Preco" name="preco" required />
+                                    <p ng-show="form.preco.$invalid && form.preco.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <div ng-class="{'has-error': form.categoria.$invalid && form.categoria.$touched}">
+                                    <label>Categoria</label>
+                                    <select class="form-control" ng-options="c.value as c.categoria for c in Categorias" ng-model="produto.IdCategoria" name="categoria" required>
+                                        <option value="">Selecione uma opção...</option>
+                                    </select>
+                                    <p ng-show="form.categoria.$invalid && form.categoria.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2" ng-if="produto.IdCategoria == 1">
+                            <div class="form-group">
+                                <div ng-class="{'has-error': form.subcategoria.$invalid && form.subcategoria.$touched}">
+                                    <label>SubCategoria</label>
+                                    <select class="form-control" ng-options="sc.value as sc.categoria for sc in SubCategorias" ng-model="produto.IdSubCategoria" name="subcategoria" required>
+                                        <option value="">Selecione uma opção...</option>
+                                    </select>
+                                    <p ng-show="form.subcategoria.$invalid && form.subcategoria.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div ng-class="{'has-error': form.tempo.$invalid && form.tempo.$touched}">
+                                    <label>Tempo de preparação</label>
+                                    <input class="form-control" type="time" placeholder="Tempo de preparação" ng-model="produto.TempoPreparacao" name="tempo" />
+                                    <p ng-show="form.tempo.$invalid && form.tempo.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-class="{'col-xs-4': produto.IdCategoria == 1,'col-xs-6':produto.IdCategoria != 1}">
+                            <div class="form-group">
+                                <div ng-class="{'has-error': form.imagem.$invalid && form.imagem.$touched}">
+                                    <label>Imagem</label>
+                                    <input type="file" id="file" ng-model="Dto.File" onchange="angular.element(this).scope().fileNameChanged(this.files)" />
+                                    <p ng-show="form.imagem.$invalid && form.imagem.$touched" class="text-danger">Campo obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="pull-right">
+                            <button class="btn corAzul" ng-disabled="!form.$valid" ng-click="salvaProduto(produto)">Salvar</button>
+                            <a class="btn btn-default" href="#/produto">Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
